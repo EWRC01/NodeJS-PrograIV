@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router()
 const methods = require('./methods');
 const User = require('./models/user');
+const Student = require('./models/student');
+// const StudentRequire = require('./models/user')
+// const Student = StudentRequire.Student;
+
 
 
 //Funcion de middleware sin ruta de montaje 
@@ -64,6 +68,31 @@ router.get('/home', function(req,res){
             messageClass: 'alert-danger'
         })
     }    
+})
+router.post('/home', async(req, res)=>{
+    try{
+        const {nameStudent, ageStudent, homeStudent, cellphoneStudent, emailStudent} = req.body
+
+        //Verificar si el estudiante existe
+        student = await Student.findOne({emailStudent:emailStudent})
+            .then(student=>{
+                if(student){
+                    res.render(__dirname+'/views/layouts/home', {
+                        message: 'Este estudiante ya existe',
+                        messageClass: 'alert-danger'
+                    })
+                } else {
+                    const studentDB = new Student({'nameStudent': nameStudent, 'ageStudent' : ageStudent, 'homeStudent':homeStudent, 'cellphoneStudent' : cellphoneStudent, 'emailStudent':emailStudent})
+                    studentDB.save()
+                    res.render(__dirname+'/views/layouts/home', {
+                        message: 'El registro se ha completado',
+                        messageClass: 'alert-success'
+                    })
+                }
+            })
+    } catch(error){
+        console.log('Error', error)
+    }
 })
 
 

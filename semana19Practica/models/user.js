@@ -16,4 +16,5 @@ const userSchema = new Schema({
 //Creamos el modulo usuario
 const User = moongose.model('User', userSchema)
 
+
 module.exports=User

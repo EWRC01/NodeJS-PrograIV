@@ -5,6 +5,37 @@
     
 </nav>
 <div>
-    <h1>Bienvenido</h1>
-   
+   <div class="row justify-content-md-center" style="margin-top: 30px;">
+    <h1>Register a new student</h1>
+    <div class="col-md-4">
+        <form method="POST" action="/home">
+            <div class="form-group">
+                <label for="studentName">Full Name</label>
+                <input name="studentName" type="text" class="form-control" id="studentName" placeholder="Enter Full Name of student">
+            </div>
+             <div class="form-group">
+                <label for="ageStudent">Age</label>
+                <input name="ageStudent" type="number" class="form-control" id="ageStudent" placeholder="Enter Age of student">
+            </div>
+            <div class="form-group">
+                <label for="homeStudent">Address</label>
+                <input name="homeStudent" type="text" class="form-control" id="homeStudent" placeholder="Enter the adress of the student">
+            </div>
+            <div class="form-group">
+                <label for="cellphoneStudent">CellPhone</label>
+                <input name="cellphoneStudent" type="number" class="form-control" id="cellphoneStudent" placeholder="Enter the cellphone of the student">
+            </div>
+            <div class="form-group">
+                <label for="emailStudent">Email</label>
+                <input name="emailStudent" type="email" class="form-control" id="emailStudent" placeholder="Enter the email of the student">
+            </div>
+            <a href="/" class="btn btn-secondary">Back</a>
+            <button type="submit" class="btn btn-primary">Register</button>
+       </form>   
+       {{#if message}}
+                    <div class="alert {{messageClass}}" role="alert">
+                        {{message}}
+                    </div>
+                {{/if}}
+    </div>  
 </div>
