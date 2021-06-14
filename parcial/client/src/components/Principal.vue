@@ -21,7 +21,7 @@
 export default{
     data() {
         return{
-            center: { lat: 45.508, lng: -73.587}
+            center: { lat: 13.503043734075197, lng: -88.35320504786823,}
         }
     }
 }
