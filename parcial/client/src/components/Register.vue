@@ -39,7 +39,7 @@ export default {
     methods: {
       register() {
             firebase.auth().createUserWithEmailAndPassword(this.email, this.pass)
-            .then(() => this.$router.replace('/login'))
+            .then(() => this.$router.replace('/'))
             .catch((error) => {
               alert(error.message)
               // ..

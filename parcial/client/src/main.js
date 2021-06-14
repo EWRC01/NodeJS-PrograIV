@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import firebase from 'firebase'
 import router from "./router";
+import * as VueGoogleMaps from 'vue2-google-maps'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 firebase.initializeApp({
@@ -20,6 +21,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+
+//Use google Maps
+Vue.use(VueGoogleMaps, {
+  load: {
+    key:'AIzaSyAt3kvEAhAxdMj5N26H1w7YWbZGeoArvRY'
+  }
+});
 
 Vue.config.productionTip = false
 
